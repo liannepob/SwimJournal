@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add a Lift Session
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="mb-4">Add a Lift Session</h2>
+
+    <form method="POST" class="form-control p-4">
+        <!--required forms-->
+        <input autocomplete="off" class="form-control mb-2" name="date" placeholder="Date" type="date" required>
+        <input autocomplete="off" class="form-control mb-2" name="exercise" placeholder="Exercise" type="text" required>
+        <input autocomplete="off" class="form-control mb-2" name="sets" placeholder="Sets" type="number" required>
+        <input autocomplete="off" class="form-control mb-2" name="reps" placeholder="Reps" type="number" required>
+        <!--non required forms:-->
+        <input autocomplete="off" class="form-control mb-2" name="weight" placeholder="Weight" type="number">
+        <input autocomplete="off" class="form-control mb-2" name="muscle_group" placeholder="Muscles" type="text">
+        <input autocomplete="off" class="form-control mb-2" name="rpe" placeholder="RPE" type="number">
+        <input autocomplete="off" class="form-control mb-2" name="notes" placeholder="Notes" type="text">
+
+        <button class="btn btn-primary mt-2" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

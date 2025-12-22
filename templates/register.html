@@ -1,0 +1,35 @@
+{%extends "layout.html" %}
+
+{% block start %}
+    Register For SwimJournal!
+{% endblock %}
+
+{% block content %}
+    <form action = "/register" method="post">
+        <!--Name form for the user(required)-->
+        <div class ="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="name" placeholder="Name" type="text" required>
+        </div>
+        <!--creates username, password/confirmed password for users-->
+        <div class ="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text" required>
+        </div>
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password"required>
+        </div>
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirm Password" type="password" required>
+        </div>
+        <!--creates age, club_team and hometown for users-->
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="age" placeholder="Age" type="number" required>
+        </div>
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="club_team" placeholder="Club Team" type="text" required>
+        </div>
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="hometown" placeholder="Hometown" type="text" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+{% endblock %}

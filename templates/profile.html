@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile & Settings
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4" style="max-width: 600px;">
+
+    <h2 class="mb-4">Your Profile</h2>
+
+    <!-- Name -->
+    <div class="mb-3">
+        <strong>Name:</strong> {{ name }}
+    </div>
+
+    <!-- Username -->
+    <div class="mb-3">
+        <strong>Username:</strong> {{ username }}
+    </div>
+
+    <!-- Age -->
+    <div class="mb-3">
+        <strong>Age:</strong> {{ age }}
+    </div>
+
+    <!-- Club Team -->
+    <div class="mb-3">
+        <strong>Club Team:</strong> {{ club_team }}
+    </div>
+
+    <!-- Hometown -->
+    <div class="mb-3">
+        <strong>Hometown:</strong> {{ hometown }}
+    </div>
+
+    <div class="profile-card">
+        <a href="/edit_profile" class="btn profile-btn">
+            Change Profile
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

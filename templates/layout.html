@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Cache-bust so Codespaces stops lying -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=999">
+
+  <title>Swim Journal: {% block title %}{% endblock %}</title>
+</head>
+
+<body class="app-body">
+  <div class="app-shell">
+
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">SwimJournal</div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="/"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+        <a class="sidebar-link" href="/profile"><i class="fa-solid fa-user"></i><span>Profile</span></a>
+        <a class="sidebar-link" href="/progression"><i class="fa-solid fa-chart-line"></i><span>Progression</span></a>
+        <a class="sidebar-link" href="/recovery"><i class="fa-solid fa-heart-pulse"></i><span>Recovery</span></a>
+        <a class="sidebar-link" href="/index"><i class="fa-solid fa-dumbbell"></i><span>Training Index</span></a>
+
+        <div class="sidebar-divider"></div>
+
+        {% if session.get("user_id") %}
+          <a class="sidebar-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
+        {% else %}
+          <a class="sidebar-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+          <a class="sidebar-link" href="/register"><i class="fa-solid fa-user-plus"></i><span>Register</span></a>
+        {% endif %}
+      </nav>
+    </aside>
+
+    <main class="app-main">
+      {% block content %}{% endblock %}
+      <footer class="app-footer">
+        <span>© {{ year }} Lianne Poblador · SwimJournal</span>
+      </footer>
+    </main>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

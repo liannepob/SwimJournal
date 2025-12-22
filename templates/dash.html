@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dash-wrap">
+  <div class="dash-card">
+
+    <div class="dash-top">
+      <div>
+        <h1 class="dash-title">Dashboard</h1>
+        <div class="dash-hello">Hello, {{ name }}</div>
+      </div>
+
+      <div class="streaks">
+        <div><b>Training Streak</b>: {{ training_streak }}</div>
+        <div><b>Activity Streak</b>: {{ total_streak }}</div>
+      </div>
+    </div>
+
+    <div class="dash-subtitle">Your training at a glance:</div>
+
+    <div class="summary">
+      <div class="summary-title">Training Summary of the Week</div>
+
+      <div class="summary-row">
+        <div class="summary-label">Week swimming yardage</div>
+        <div class="summary-val">{{ total_dist }}</div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-label">Total lift sessions</div>
+        <div class="summary-val">{{ total_lifts }}</div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-label">Average soreness level</div>
+        <div class="summary-val">{{ avg_soreness }}</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

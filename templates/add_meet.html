@@ -1,0 +1,24 @@
+<!--allows users to add their races for progress tracking-->
+<!--form to add a swim session-->
+{% extends "layout.html" %}
+
+{% block title %}
+Add a Meet
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="mb-4">Add a Swim Meet</h2>
+    <form method="POST" class="form-control p-4">
+        <!--required forms-->
+        <input autocomplete="off" class="form-control mb-2" name="date" placeholder="Date" type="date" required>
+        <input autocomplete="off" class="form-control mb-2" name="event" placeholder="Event" type="text" required>
+        <input autocomplete="off" class="form-control mb-2" name="time" placeholder="Time" type="text" required>
+        <input autocomplete="off" class="form-control mb-2" name="meet" placeholder="Meet" type="text" required>
+        <input autocomplete="off" class="form-control mb-2" name="round" placeholder="Round" type="text" required>
+        <input autocomplete="off" class="form-control mb-2" name="notes" placeholder="Notes" type="text">
+
+        <button class="btn btn-primary mt-2" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

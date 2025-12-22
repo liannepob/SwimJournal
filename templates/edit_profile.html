@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Profile
+{% endblock %}
+
+{% block content %}
+
+    <form action = "/edit_profile" method="post">
+        <!--Name form for the user(required)-->
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="name" placeholder="Name" type="text" required value="{{ name }}">
+        </div>
+        <!--creates age, club_team and hometown for users-->
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="age" placeholder="age" type="text" required value="{{ age }}">
+        </div>
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="club_team" placeholder="club_team" type="text" required value="{{ club_team }}">
+        </div>
+        <div class ="mb-3">
+            <input class="form-control mx-auto w-auto" name="hometown" placeholder="hometown" type="text" required value="{{ hometown }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+
+{% endblock %}

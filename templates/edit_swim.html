@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Edit Swim
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" style="max-width: 650px;">
+  <h2 class="mb-3">Edit Swim</h2>
+
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input class="form-control" type="date" name="date" value="{{ swim.date }}" required>
+    </div>
+
+    <div class="row g-2">
+      <div class="col">
+        <label class="form-label">Distance</label>
+        <input class="form-control" type="number" name="distance" value="{{ swim.distance }}" required>
+      </div>
+      <div class="col">
+        <label class="form-label">Difficulty</label>
+        <input class="form-control" type="number" name="difficulty" value="{{ swim.difficulty }}" required>
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Pool</label>
+      <input class="form-control" type="text" name="pool" value="{{ swim.pool }}">
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Stroke</label>
+      <input class="form-control" type="text" name="stroke" value="{{ swim.stroke }}">
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Duration</label>
+      <input class="form-control" type="text" name="duration" value="{{ swim.duration }}">
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Notes</label>
+      <input class="form-control" type="text" name="notes" value="{{ swim.notes }}">
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Save</button>
+    <a class="btn btn-secondary mt-3" href="{{ url_for('index') }}">Back</a>
+  </form>
+</div>
+{% endblock %}

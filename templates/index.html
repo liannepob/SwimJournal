@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block title %}Training Index{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Training Index</h2>
+
+  <!-- Lifts -->
+  <h4 class="mt-3 text-primary">💪 Lifts</h4>
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th class="d-none">id</th>
+        <th>Date</th>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Reps</th>
+        <th>Weight</th>
+        <th>Muscle Group</th>
+        <th>RPE</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in lifts %}
+      <tr>
+        <td class="d-none">{{ l.id }}</td>
+        <td>{{ l.date }}</td>
+        <td>{{ l.exercise }}</td>
+        <td>{{ l.sets }}</td>
+        <td>{{ l.reps }}</td>
+        <td>{{ l.weight }}</td>
+        <td>{{ l.muscle_group }}</td>
+        <td>{{ l.rpe }}</td>
+        <td>{{ l.notes }}</td>
+        <td>
+        <a href="{{ url_for('edit_lift', lift_id=l.id) }}"
+            class="btn btn-warning btn-sm">
+            Edit
+        </a>
+
+        <form action="{{ url_for('delete_event') }}"
+            method="post"
+            class="d-inline"
+            onsubmit="return confirm('Delete this lift?');">
+        <input type="hidden" name="type" value="lift">
+        <input type="hidden" name="id" value="{{ l.id }}">
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+        
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Swims -->
+  <h4 class="mt-4 text-primary">🏊 Swims</h4>
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th class="d-none">id</th>
+        <th>Date</th>
+        <th>Distance</th>
+        <th>Pool</th>
+        <th>Stroke</th>
+        <th>Duration</th>
+        <th>Difficulty</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in swims %}
+      <tr>
+        <td class="d-none">{{ s.id }}</td>
+        <td>{{ s.date }}</td>
+        <td>{{ s.distance }}</td>
+        <td>{{ s.pool }}</td>
+        <td>{{ s.stroke }}</td>
+        <td>{{ s.duration }}</td>
+        <td>{{ s.difficulty }}</td>
+        <td>{{ s.notes }}</td>
+        <td>
+        <!-- Edit -->
+        <a href="{{ url_for('edit_swim', swim_id=s.id) }}"
+            class="btn btn-warning btn-sm">
+            Edit
+        </a>
+
+        <!-- Delete -->
+        <form action="{{ url_for('delete_event') }}"
+            method="post"
+            class="d-inline"
+            onsubmit="return confirm('Delete this swim?');">
+        <input type="hidden" name="type" value="swim">
+        <input type="hidden" name="id" value="{{ s.id }}">
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Races -->
+  <h4 class="mt-4 text-primary">🏅 Meets</h4>
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th class="d-none">id</th>
+        <th>Date</th>
+        <th>Event</th>
+        <th>Time</th>
+        <th>Meet</th>
+        <th>Round</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for m in races %}
+      <tr>
+        <td class="d-none">{{ m.id }}</td>
+        <td>{{ m.date }}</td>
+        <td>{{ m.event }}</td>
+        <td>{{ m.time }}</td>
+        <td>{{ m.meet }}</td>
+        <td>{{ m.round }}</td>
+        <td>{{ m.notes }}</td>
+        <td>
+        <!-- Edit -->
+        <a href="{{ url_for('edit_race', race_id=m.id) }}"
+            class="btn btn-warning btn-sm">
+            Edit
+        </a>
+
+        <!-- Delete -->
+        <form action="{{ url_for('delete_event') }}"
+            method="post"
+            class="d-inline"
+            onsubmit="return confirm('Delete this race?');">
+        <input type="hidden" name="type" value="race">
+        <input type="hidden" name="id" value="{{ m.id }}">
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

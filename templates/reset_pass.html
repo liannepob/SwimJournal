@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Reset Password
+{% endblock %}
+
+{% block content %}
+<form action="/reset_pass" method="post">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text" required>
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="old_password" placeholder="Old Password" type="password" required>
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="new_password" placeholder="New Password" type="password" required>
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirm New Password" type="password" required>
+    </div>
+    <button class="btn btn-warning" type="submit">Reset Password</button>
+</form>
+{% endblock %}

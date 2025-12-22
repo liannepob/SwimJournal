@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Edit Lift
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" style="max-width: 650px;">
+  <h2 class="mb-3">Edit Lift</h2>
+
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input class="form-control" type="date" name="date" value="{{ lift.date }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Exercise</label>
+      <input class="form-control" type="text" name="exercise" value="{{ lift.exercise }}" required>
+    </div>
+
+    <div class="row g-2">
+      <div class="col">
+        <label class="form-label">Sets</label>
+        <input class="form-control" type="number" name="sets" value="{{ lift.sets }}" required>
+      </div>
+      <div class="col">
+        <label class="form-label">Reps</label>
+        <input class="form-control" type="number" name="reps" value="{{ lift.reps }}" required>
+      </div>
+    </div>
+
+    <div class="row g-2 mt-2">
+      <div class="col">
+        <label class="form-label">Weight</label>
+        <input class="form-control" type="text" name="weight" value="{{ lift.weight }}">
+      </div>
+      <div class="col">
+        <label class="form-label">RPE</label>
+        <input class="form-control" type="number" step="0.5" name="rpe" value="{{ lift.rpe }}">
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Muscle Group</label>
+      <input class="form-control" type="text" name="muscle_group" value="{{ lift.muscle_group }}">
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Notes</label>
+      <input class="form-control" type="text" name="notes" value="{{ lift.notes }}">
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Save</button>
+    <a class="btn btn-secondary mt-3" href="{{ url_for('index') }}">Back</a>
+  </form>
+</div>
+{% endblock %}

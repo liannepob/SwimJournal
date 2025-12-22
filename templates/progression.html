@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add Progression
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="mb-4">Add Progression</h2>
+
+    <!-- Add Swim -->
+    <div class="mb-3 d-flex align-items-center">
+        <strong class="me-2">Add Swim:</strong>
+        <a href="{{ url_for('add_swim') }}" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+    </div>
+
+    <!-- Add Lift -->
+    <div class="mb-3 d-flex align-items-center">
+        <strong class="me-2">Add Lift:</strong>
+        <a href="{{ url_for('add_lift') }}" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+    </div>
+
+    <!-- Add Meet -->
+    <div class="mb-3 d-flex align-items-center">
+        <strong class="me-2">Add Meet:</strong>
+        <a href="{{ url_for('add_meet') }}" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+    </div>
+</div>
+<!-- create a dropdown menu for the user to select an event and a chart for that event -->
+{% if events and events|length > 0 %}
+  <label for="eventSelect" class="form-label mt-3">Select event</label>
+  <select id="eventSelect" class="form-select mb-3">
+    {% for e in events %}
+      <option value="{{ e.event }}">{{ e.event }}</option>
+    {% endfor %}
+  </select>
+{% else %}
+  <div class="alert alert-info mt-3">No race events yet. Add a race to see charts.</div>
+{% endif %}
+
+<!-- canvas for the chart -->
+<div class="card">
+  <div class="card-body" style="height: 320px;">
+    <canvas id="swim_chart"></canvas>
+    <div id="noDataMsg" class="text-muted small mt-2" style="display:none;">
+      No data for this event yet.
+    </div>
+  </div>
+</div>
+
+<!-- load Chart.js library BEFORE your own script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="{{ url_for('static', filename='chart.js') }}"></script>
+{% endblock %}

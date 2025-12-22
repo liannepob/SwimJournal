@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Edit Race
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" style="max-width: 650px;">
+  <h2 class="mb-3">Edit Race</h2>
+
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input class="form-control" type="date" name="date" value="{{ race.date }}" required>
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Event</label>
+      <input class="form-control" type="text" name="event" value="{{ race.event }}" required>
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Time</label>
+      <input class="form-control" type="text" name="time" value="{{ race.time }}" required>
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Meet</label>
+      <input class="form-control" type="text" name="meet" value="{{ race.meet }}">
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Round</label>
+      <input class="form-control" type="text" name="round" value="{{ race.round }}">
+    </div>
+
+    <div class="mt-2">
+      <label class="form-label">Notes</label>
+      <input class="form-control" type="text" name="notes" value="{{ race.notes }}">
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Save</button>
+    <a class="btn btn-secondary mt-3" href="{{ url_for('index') }}">Back</a>
+  </form>
+</div>
+{% endblock %}
