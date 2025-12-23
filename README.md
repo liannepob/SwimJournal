@@ -1,8 +1,5 @@
 # SwimJournal
 
-#### Video Demo:
-https://www.youtube.com/watch?v=39S1PSs4N6o
-
 #### Description:
 SwimJournal is a full-stack web application designed to help swimmers systematically track, analyze, and reflect on their training across multiple dimensions. The application serves as a centralized digital training log where athletes can record swim workouts, strength training sessions, race performances, and recovery metrics, all within a single, cohesive platform. The purpose of SwimJournal is to transform raw training data into meaningful insights that promote consistency, self-awareness, and long-term athletic development.
 
