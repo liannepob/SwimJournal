@@ -43,15 +43,6 @@ SwimJournal is a full-stack web application that allows swimmers to log, analyze
 
 ---
 
-## 🌱 Future Improvements
-
-- Expanded analytics for workload and recovery trends  
-- Exportable training summaries (CSV/PDF)  
-- Mobile-optimized interface  
-- Coach and team-based account support  
-
----
-
 ## 📌 Acknowledgments
 
 - Harvard CS50x — Introduction to Computer Science  
